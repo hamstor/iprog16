@@ -20,7 +20,6 @@ var PlanningView = function (container, model) {
    			var activity = document.createElement("li");
 
             var type = currentActivity.getTypeId();
-            console.log("Parked :" + currentActivity.getName() + " ID: " + type);
    		   //activity.setAttribute("class", "item-wrapper" );
             switch (parseInt(type))
             {
@@ -64,14 +63,10 @@ var PlanningView = function (container, model) {
 
       for (i=0; i < allDays.length; i++) {
             var startStr = model.days[i].getStart();
-            console.log ("startStr", startStr);
             var startHrs = startStr.substring(0,2);
-            console.log("startHrs", startHrs);
             var startMins = startStr.substring(3,4);
-            console.log("startMins", startMins);
 
             var totalLength = parseInt(startHrs)*60 + parseInt(startMins);
-            console.log("totalLength", totalLength);
 			for (k=0; k<model.days[i]._activities.length; k++) {
             var currentActivity = model.days[i]._activities[k]
 
@@ -100,11 +95,8 @@ var PlanningView = function (container, model) {
 
 
             totalLength = currentActivity.getLength() + totalLength;
-            console.log("totalLengt2", totalLength);
             var hours = Math.floor(totalLength/60);
-            console.log("hours", hours);
             var minutes = ((totalLength-(hours*60))) % 60;
-            console.log("minutes", minutes);
             var text = document.createTextNode(hours + ":" + minutes +
                                                  "  -  " + currentActivity.getName());
             dayActivity.appendChild(text);
@@ -193,19 +185,10 @@ var PlanningView = function (container, model) {
          items: ":not(.day-header)",
       })
    }
-   function debug() {
-      console.log("Currently there are " + model.days.length + " days");
-      console.log("And there are " + model.parkedActivities.length + " parked activities");
-      for (var days = 0; day < model.days.length; days++) {
-         console.log("For day " + days + " there are " +
-                        model.days[days]._activities.length + " activities");
-      }
-   }
 
 	this.update = function(arg){
 		renderDays();
 		renderActivities();
-      debug();
    }
 }
 

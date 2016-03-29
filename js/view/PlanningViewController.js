@@ -56,7 +56,7 @@ var PlanningViewController = function(view, model ) {
 				else {
 					//document.getElementById('form').submit();
 					console.log(document.getElementById('length-pop').value  +" Length")
-					model.addActivity(new Activity(document.getElementById('name').value, document.getElementById('length-pop').value, document.getElementById('type').value, document.getElementById('description').value));
+					model.addActivity(new Activity(document.getElementById('name').value, parseInt(document.getElementById('length-pop').value), document.getElementById('type').value, document.getElementById('description').value));
 					/*tezt
 
 					console.log(model.parkedActivities[0].getName());
@@ -67,8 +67,8 @@ var PlanningViewController = function(view, model ) {
 					$("#popupAddActivity").hide();
 					document.getElementById('name').value ="";
 					document.getElementById('length-pop').value="";
-					document.getElementById('type').value=""; 
-					document.getElementById('description').value="0";
+					document.getElementById('type').value="0"; 
+					document.getElementById('description').value="";
 
 			   }
          $(".connectedSortable").sortable("refresh");
@@ -93,9 +93,9 @@ var PlanningViewController = function(view, model ) {
       var newday = $(ui.item).parent().attr("nr");
       var newpos = ui.item.index();
 
-      console.log("BEFORE MOVE");
-      console.log("we come from day " + oldday + " with position " + oldpos);
-      console.log("we are going to day " + newday + " with position " + newpos);
+     // console.log("BEFORE MOVE");
+     // console.log("we come from day " + oldday + " with position " + oldpos);
+     // console.log("we are going to day " + newday + " with position " + newpos);
 
       model.moveActivity(oldday, parseInt(oldpos), newday, parseInt(newpos));
    });

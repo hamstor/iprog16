@@ -12,8 +12,8 @@ var PlanningView = function (container, model) {
 	//Add activity to Activity table
 		
 		this.activities = container.find("#activity-container");
-		activities.html("");
-		for(i= 0; i< model.parkedActivities.length; i++){
+   activities.html("");
+   for(i= 0; i< model.parkedActivities.length; i++){
          var currentActivity = model.parkedActivities[i]
          if(currentActivity != null){
 			
@@ -46,7 +46,9 @@ var PlanningView = function (container, model) {
 
             activity.setAttribute("pos", i);
             activity.setAttribute("day", null);
-   			activity.innerHTML = currentActivity.getName();
+            var text = document.createTextNode(currentActivity.getName() + "  -  " + currentActivity.getLength() + " mins");
+   			//activity.innerHTML = currentActivity.getName()
+            activity.appendChild(text);
          
    		   document.getElementById("activity-container").appendChild(activity);
          }
@@ -61,6 +63,15 @@ var PlanningView = function (container, model) {
       var allDays = outer.getElementsByTagName("ul");
 
       for (i=0; i < allDays.length; i++) {
+            var startStr = model.days[i].getStart();
+            console.log ("startStr", startStr);
+            var startHrs = startStr.substring(0,2);
+            console.log("startHrs", startHrs);
+            var startMins = startStr.substring(3,4);
+            console.log("startMins", startMins);
+
+            var totalLength = parseInt(startHrs)*60 + parseInt(startMins);
+            console.log("totalLength", totalLength);
 			for (k=0; k<model.days[i]._activities.length; k++) {
             var currentActivity = model.days[i]._activities[k]
 
@@ -86,8 +97,17 @@ var PlanningView = function (container, model) {
             dayActivity.setAttribute("time", currentActivity.getLength());
             dayActivity.setAttribute("descr", currentActivity.getDescription());
             dayActivity.setAttribute("pos", k);
-      
-            dayActivity.innerHTML = currentActivity.getName();
+
+
+            totalLength = currentActivity.getLength() + totalLength;
+            console.log("totalLengt2", totalLength);
+            var hours = Math.floor(totalLength/60);
+            console.log("hours", hours);
+            var minutes = ((totalLength-(hours*60))) % 60;
+            console.log("minutes", minutes);
+            var text = document.createTextNode(hours + ":" + minutes +
+                                                 "  -  " + currentActivity.getName());
+            dayActivity.appendChild(text);
 
             allDays[i].appendChild(dayActivity);
             // setting day based on the parents nr attribute, 0 indexed

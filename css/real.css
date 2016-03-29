@@ -68,7 +68,7 @@ ol{
    
 }
 /* === BUTTONS (WIP) === */
-.add-activity-button {
+.add-activity-button{
     border: solid 1px;
     padding: 10px 20px;
     background: rgba(0,255,0,0.4);
@@ -284,7 +284,15 @@ header {
 }
 
 /* === POPUP === */
-div#popupAddActivity {
+div#popupAddActivity{
+	display: none;
+	z-index: 999;
+	position:absolute;
+	left:50%;
+	top:17%;
+	margin-left:-202px;
+}
+div#popupAddDay{
 	display: none;
 	z-index: 999;
 	position:absolute;

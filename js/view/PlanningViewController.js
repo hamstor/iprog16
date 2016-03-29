@@ -5,9 +5,41 @@ var PlanningViewController = function(view, model ) {
 	});
 
 	$("#add-day").click(function(){
-		model.addDay();
+		$("#popupAddDay").show();
+//		model.addDay();
       $(".connectedSortable").sortable("refresh");
 	});
+
+	$("#confirm-day").click(function(){
+		
+			
+			if (isNaN(parseInt(document.getElementById('time').value)))   {
+				alert("Must be a number");
+			}
+			else {
+				//document.getElementById('form').submit();
+
+				var timeStr = String(document.getElementById("time").value);
+				console.log(timeStr);
+				var hour = timeStr.substring(0,2)
+				var minute = timeStr.substring(3,5)
+				model.addDay();
+	
+
+				$("#popupAddDay").hide();
+				document.getElementById('time').value ="";
+
+
+		   }
+	 $(".connectedSortable").sortable("refresh");
+	});
+
+
+
+
+
+
+
 
 	//Confirm activity and hide popup
 	$("#confirm-activity").click(function(){
@@ -30,7 +62,7 @@ var PlanningViewController = function(view, model ) {
 					console.log(model.parkedActivities[0].getTypeId());
 					console.log(model.parkedActivities[0].getDescription());
 					*/
-					$("#popupAddActivity").hide();
+					$("#popupAddDay").hide();
 					document.getElementById('name').value ="Your Activity";
 					document.getElementById('length').value="0";
 					document.getElementById('type').value="0"; 
@@ -45,6 +77,11 @@ var PlanningViewController = function(view, model ) {
 				$("#popupAddActivity").hide();
 	
 	});
+	$("#exit-day").click(function(){
+				$("#popupAddDay").hide();
+	
+	});
+
 
    // Deferred event handler when dragging activities around
    $(document).on('sortupdate', '.connectedSortable', function (event, ui) {

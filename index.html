@@ -47,6 +47,10 @@
             <div id="days" class = "dayClass"></div>
 			 
 			 
+
+
+
+
 			<!-- Popup Starts Here -->
 			<div id="popupAddActivity">
 			
@@ -70,6 +74,22 @@
       
 			</div>
 			<!-- Popup Div Ends Here -->
+			
+
+			<div id="popupAddDay">
+            <!-- Add day Form -->
+            <div id="form" name="form">
+               <h2>Add Day</h2>
+               <hr> Please input Start time 
+               <input id="time" name="Starting Time" type="time">
+               
+               <!-- Confirm and Exit buttons for add activity -->
+               <button id ="confirm-day" class = "button-add">Confirm activity</button>
+               <button id ="exit-day" class = "button-add">Exit</button>
+            </div>
+      
+			</div>
+			<!-- Popup Div Ends Here -->
 
 
 
@@ -85,6 +105,7 @@
       <script>
          $(function() {
             $( "#popupAddActivity" ).draggable();
+			 $( "#popupAddDay" ).draggable();            
          });
       </script>
     <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->

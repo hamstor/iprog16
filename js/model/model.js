@@ -1,4 +1,4 @@
-// JavaScript Document
+	// JavaScript Document
 
 // The possible activity types
 var ActivityType = ["Presentation","Group Work","Discussion","Break"]

@@ -5,6 +5,7 @@ var StartViewController = function(view, model) {
 		$("#start-view").hide();
 		$("#planning-view").show();
 		
+		
 		model.addDay();
 
 		//create parked activities

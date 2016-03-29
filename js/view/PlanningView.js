@@ -115,25 +115,35 @@ var PlanningView = function (container, model) {
                                "<br/>End: " + endTime;
 
          //dayHeader.appendChild(dayText);
-         
+         var totalLength = model.days[i].getTotalLength();
          var headerChart = document.createElement("div");
          headerChart.setAttribute("class", "bar-container");
 
-         var presentationChart = document.createElement("div");
-         presentationChart.setAttribute("class", "bar presentation");
-         presentationChart.setAttribute("style", "height: 15%")// FIXME: time
 
+         var barSizePres = Math.floor(100*(model.days[i].getLengthByType(0)/totalLength));
+         var presentationChart = document.createElement("div");
+         barSizePresStr = "height: "+String(barSizePres)+"%";
+         presentationChart.setAttribute("class", "bar presentation");
+         presentationChart.setAttribute("style", barSizePresStr)// FIXME: time
+
+         var barSizeGroup = Math.floor(100*(model.days[i].getLengthByType(1)/totalLength));
          var groupChart = document.createElement("div");
          groupChart.setAttribute("class", "bar group");
-         groupChart.setAttribute("style", "height: 30%");
+         barSizeGroupStr = "height: "+String(barSizeGroup)+"%";
+         groupChart.setAttribute("style", barSizeGroupStr);
 
+         var barSizeDiscussion = Math.floor(100*(model.days[i].getLengthByType(2)/totalLength));
          var discussionChart = document.createElement("div");
+         discussionChart.setAttribute("class", "bar group");
+         var barSizeDiscussionStr = "height: "+String(barSizeDiscussion)+"%";
          discussionChart.setAttribute("class", "bar discussion");
-         discussionChart.setAttribute("style", "height: 25%");
+         discussionChart.setAttribute("style", barSizeDiscussionStr);
 
+         var barSizeBreak = Math.floor(100*(model.days[i].getLengthByType(3)/totalLength));
          var breakChart = document.createElement("div");
+         barSizeBreakStr = "height: "+ String(barSizeBreak)+"%";
          breakChart.setAttribute("class", "bar break");
-         breakChart.setAttribute("style", "height: 30%");
+         breakChart.setAttribute("style", barSizeBreakStr);
 
          headerChart.appendChild(presentationChart);
          headerChart.appendChild(groupChart);

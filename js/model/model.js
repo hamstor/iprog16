@@ -92,6 +92,8 @@ function Day(startH,startM) {
 		var end = this._start + this.getTotalLength();
 		var hour = Math.floor(end/60);
 		var minute = end % 60;
+		
+		console.log(minute + " minute");
 		if(hour < 10)
 			{
 				hour = "0"+String(hour);
@@ -100,7 +102,7 @@ function Day(startH,startM) {
 			{
 			 minute = "0" + String(minute);
 			}
-		return hour + ":" +minute;
+		return String(hour) + ":" + String(minute);
 	};
 	
 	// returns the string representation Hours:Minutes of 

@@ -115,7 +115,7 @@ var PlanningView = function (container, model) {
                                "<br/>End: " + endTime;
 
          //dayHeader.appendChild(dayText);
-
+         
          var headerChart = document.createElement("div");
          headerChart.setAttribute("class", "bar-container");
 

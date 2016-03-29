@@ -87,7 +87,7 @@ var PlanningView = function (container, model) {
             dayActivity.setAttribute("descr", currentActivity.getDescription());
             dayActivity.setAttribute("pos", k);
       
-            dayActivity.innerHTML = "Activity " + currentActivity.getName();
+            dayActivity.innerHTML = currentActivity.getName();
 
             allDays[i].appendChild(dayActivity);
             // setting day based on the parents nr attribute, 0 indexed
@@ -102,23 +102,23 @@ var PlanningView = function (container, model) {
       day.html("");
 
       for (i=0; i<model.days.length; i++) {
-         var dayContainer = document.createElement("ul");
-         dayContainer.setAttribute("id", "day-container");
-         dayContainer.setAttribute("class", "connectedSortable"); //needed?
-         dayContainer.setAttribute("nr", i);
+         var dayContainer = document.createElement("div");
+         dayContainer.setAttribute("id", "day-div");
+         dayContainer.setAttribute("class", "day-div");
 
          var dayHeader = document.createElement("div");
-         dayHeader.setAttribute("id", "activity-table-head");
+         dayHeader.setAttribute("id", "day-table-head");
          dayHeader.setAttribute("class", "day-header");
-         var dayTime = model.days[i].getStart()
-          
-         var dayText = document.createTextNode("Day " + (i+1) + " Starting Time: " + dayTime  );
+         var startTime = model.days[i].getStart();
+         var endTime = model.days[i].getEnd();
+         dayHeader.innerHTML = "Day " + (i+1) + "<br/>Start: " + startTime +
+                               "<br/>End: " + endTime;
 
-         dayHeader.appendChild(dayText);
+         //dayHeader.appendChild(dayText);
 
          var headerChart = document.createElement("div");
          headerChart.setAttribute("class", "bar-container");
-         
+
          var presentationChart = document.createElement("div");
          presentationChart.setAttribute("class", "bar presentation");
          presentationChart.setAttribute("style", "height: 15%")// FIXME: time
@@ -143,6 +143,13 @@ var PlanningView = function (container, model) {
          dayHeader.appendChild(headerChart);
 
          dayContainer.appendChild(dayHeader);
+
+         var daySortable = document.createElement("ul");
+         daySortable.setAttribute("id", "day-container");
+         daySortable.setAttribute("class", "connectedSortable");
+         daySortable.setAttribute("nr", i);
+
+         dayContainer.appendChild(daySortable);
 
          document.getElementById("days").appendChild(dayContainer);
       }

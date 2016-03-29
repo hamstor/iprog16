@@ -35,6 +35,7 @@ p {
 }
 
 hr {
+   position: fixed;
 	height: 1px;
 	border: none;
 	background: black;
@@ -75,7 +76,8 @@ ol{
     position: block;
     font-weight: bold;
     cursor: pointer;
-    width: 100%;
+    height: 43px;
+    width: 139px;
     font-size: 13px;
 }
 .add-activity-button:hover {
@@ -87,15 +89,16 @@ ol{
 }
 
 .button-add {
-	float: left;
+	float: right;
     border: solid 1px;
     padding: 10px 20px;
-    margin: 90px 20px;
     background: rgba(0,255,0,0.4);
-    position: ;
+    position: block;
     font-weight: bold;
     cursor: pointer;
     font-family: arial;
+    height: 43px;
+    width: 139px;
     font-size: 13px;
 }
 .button-add:hover {
@@ -175,12 +178,11 @@ header {
 .item-wrapper {
     border: 1px solid #eee;
     width: 142px;
-    min-height: 60px;
+    min-height: 30px;
     list-style-type: none;
     margin: 0;
-    padding: 5px 0 0 0;
+    padding: 0px 0 0 0;
     float: left;
-    margin-right: 1px;
     font-size: 0.9em;
 }
 /*.item-wrapper:nth-child(even) { background-color: #f8f8f8; }*/
@@ -189,7 +191,6 @@ header {
 
 #activity-container,#day-container{
     background: rgb(146,198,37,0.3);
-    border: 1px solid black;
     width: 142px;
 	 height: 360px;
     list-style-type: none;
@@ -200,7 +201,7 @@ header {
 }
 
 #activity-container li, #day-container li {
-    margin: 0 2px 2px 2px;
+    margin: 0 1px 1px 1px;
     padding: 5px;
     font-size: 1.2em;
 	box-shadow: 5px 5px 5px #888888;
@@ -217,9 +218,9 @@ header {
 
 /* === ACTIVITY STUFF === */
 #activity-rect {
-	position: relative;
-	width: 25%;
-	height: 70%;
+	position: fixed;
+	width: 280;
+	height: 80%;
 	display: inline;
 	background: grey;
 	padding: 20px;
@@ -234,7 +235,7 @@ header {
 #activity-table-head {
 	background: #c4c4c4;
 	border: solid 1px;
-	height: 70px;
+	height: 35px;
 	font-style: bold;
 	font-size: 12;
 	padding: 10px 20px;
@@ -279,6 +280,30 @@ header {
 
 /* === DAY STUFF === */
 
+.day-div {
+	position: relative;
+	width: 225px;
+	height: 487px;
+	display: inline;
+	background: grey;
+	padding: 20px;
+	opacity: 20%;
+	margin-top: 50px;
+   margin-left: 330px;
+	float: left;
+	border: solid 1px;
+	-moz-box-sizing: border-box; -webkit-box-sizing: -box; box-sizing: border-box;
+}
+#day-table-head {
+	background: #c4c4c4;
+   overflow: auto;
+	border: solid 1px;
+	height: 70px;
+	font-style: bold;
+	font-size: 12;
+	padding: 10px 20px;
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
 .con {
 	height: 100%;
 	min-height: 350px;
@@ -347,11 +372,9 @@ select {
 
 /* CHART */
 .bar-container {
-    float: left;
-    margin-right: 1px;
+    float: right;
     width: 50px;
     height: 100px;
-    display:list-item;
 }
 .bar {
     background-color: red;

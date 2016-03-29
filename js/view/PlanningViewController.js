@@ -90,12 +90,7 @@ var PlanningViewController = function(view, model ) {
       var oldpos = $(ui.item).attr("pos");
 
       var newday = $(ui.item).parent().attr("nr");
-
-      // make zeroindexed as the day header is counted to the sortable
-      if (newday != null || newday != undefined)
-         var newpos = ui.item.index()-1;
-      else
-         var newpos = ui.item.index();
+      var newpos = ui.item.index();
 
       console.log("BEFORE MOVE");
       console.log("we come from day " + oldday + " with position " + oldpos);

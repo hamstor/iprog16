@@ -234,7 +234,9 @@ header {
 #activity-table-head {
 	background: #c4c4c4;
 	border: solid 1px;
-	height: 40px;
+	height: 70px;
+	font-style: bold;
+	font-size: 12;
 	padding: 10px 20px;
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }

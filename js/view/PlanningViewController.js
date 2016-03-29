@@ -14,16 +14,17 @@ var PlanningViewController = function(view, model ) {
 		
 			
 			if (isNaN(parseInt(document.getElementById('time').value)))   {
-				alert("Must be a number");
+				alert("Please fill in the starting time on the format HH:MM");
 			}
 			else {
 				//document.getElementById('form').submit();
 
 				var timeStr = String(document.getElementById("time").value);
-				console.log(timeStr);
+				
 				var hour = timeStr.substring(0,2)
+				console.log(hour);
 				var minute = timeStr.substring(3,5)
-				model.addDay();
+				model.addDay(parseInt(hour), parseInt(minute));
 	
 
 				$("#popupAddDay").hide();

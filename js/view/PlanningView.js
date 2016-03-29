@@ -110,8 +110,10 @@ var PlanningView = function (container, model) {
          var dayHeader = document.createElement("div");
          dayHeader.setAttribute("id", "activity-table-head");
          dayHeader.setAttribute("class", "day-header");
+         var dayTime = model.days[i].getStart()
           
-         var dayText = document.createTextNode("Day " + (i+1));
+         var dayText = document.createTextNode("Day " + (i+1) + " Starting Time: " + dayTime  );
+
          dayHeader.appendChild(dayText);
 
          var headerChart = document.createElement("div");

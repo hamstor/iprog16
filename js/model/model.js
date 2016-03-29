@@ -94,13 +94,13 @@ function Day(startH,startM) {
 		var minute = end % 60;
 		if(hour < 10)
 			{
-				var hourStr = "0"+hour;
+				var hourStr = "0"+String(hour);
 			}	
 		if(minute < 10)
 			{
-			var minuteStr = "0" + minute;
+			var minuteStr = "0" + String(minute);
 			}
-		return hour + ":" +minute;
+		return hourStr + ":" +minuteStr;
 	};
 	
 	// returns the string representation Hours:Minutes of 
@@ -110,11 +110,11 @@ function Day(startH,startM) {
 		var minute = this._Start % 60;
 		if(hour < 10)
 			{
-				var hourStr = "0"+hour;
+				var hourStr = "0"+String(hour);
 			}	
 		if(minute < 10)
 			{
-			var minuteStr = "0" + minute;
+			var minuteStr = "0" +String(minute);
 			}	
 		return hourStr + ":" + minuteStr;
 	};

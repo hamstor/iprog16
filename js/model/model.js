@@ -94,29 +94,30 @@ function Day(startH,startM) {
 		var minute = end % 60;
 		if(hour < 10)
 			{
-				var hourStr = "0"+String(hour);
+				hour = "0"+String(hour);
 			}	
 		if(minute < 10)
 			{
-			var minuteStr = "0" + String(minute);
+			 minute = "0" + String(minute);
 			}
-		return hourStr + ":" +minuteStr;
+		return hour + ":" +minute;
 	};
 	
 	// returns the string representation Hours:Minutes of 
 	// the start time of the day
 	this.getStart = function() {
 		var hour = Math.floor(this._start/60);
-		var minute = this._Start % 60;
+		var minute = this._start % 60;
+		console.log(minute);
 		if(hour < 10)
-			{
-				var hourStr = "0"+String(hour);
+			{	
+				hour = "0"+String(hour);	
 			}	
 		if(minute < 10)
 			{
-			var minuteStr = "0" +String(minute);
+				minute = "0" +String(minute);
 			}	
-		return hourStr + ":" + minuteStr;
+		return hour + ":" + minute;
 	};
 	
 	// returns the length (in minutes) of activities of certain type

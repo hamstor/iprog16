@@ -53,15 +53,16 @@ var PlanningViewController = function(view, model ) {
 
       var newday = $(ui.item).parent().attr("nr");
 
-
       // make zeroindexed as the day header is counted to the sortable
-      var newpos = ui.item.index()-1;
-      var newpos = ui.item.index();
+      if (newday != null || newday != undefined)
+         var newpos = ui.item.index()-1;
+      else
+         var newpos = ui.item.index();
 
       console.log("BEFORE MOVE");
       console.log("we come from day " + oldday + " with position " + oldpos);
       console.log("we are going to day " + newday + " with position " + newpos);
 
-      model.moveActivity(oldday, oldpos, newday,newpos);
+      model.moveActivity(oldday, parseInt(oldpos), newday, parseInt(newpos));
    });
 }

@@ -1,5 +1,4 @@
 var PlanningView = function (container, model) {
-
 	model.addObserver(this);
 	this.PlanningView = container.find("#planning-view");
 	this.addActivity = container.find("#add-day");
@@ -20,7 +19,6 @@ var PlanningView = function (container, model) {
 			
    			var activity = document.createElement("li");
 
-            
             var type = currentActivity.getTypeId();
             console.log("Parked :" + currentActivity.getName() + " ID: " + type);
    		   //activity.setAttribute("class", "item-wrapper" );
@@ -28,7 +26,6 @@ var PlanningView = function (container, model) {
             {
                case 0:
                  activity.setAttribute("class", "item-wrapper presentation");
-                 console.log("APAPAPAPAP");
                  break
                case 1:
                   activity.setAttribute("class", "item-wrapper group-work");
@@ -47,16 +44,11 @@ var PlanningView = function (container, model) {
             activity.setAttribute("descr", currentActivity.getDescription());
             activity.setAttribute("type", currentActivity.getTypeId());
 
-        
-
             activity.setAttribute("pos", i);
             activity.setAttribute("day", null);
-   			activity.innerHTML = "Activity: " + currentActivity.getName();
-
+   			activity.innerHTML = currentActivity.getName();
          
    		   document.getElementById("activity-container").appendChild(activity);
-            
-
          }
 	   }
       connectContainers();
@@ -121,6 +113,32 @@ var PlanningView = function (container, model) {
          var dayText = document.createTextNode("Day " + (i+1));
          dayHeader.appendChild(dayText);
 
+         var headerChart = document.createElement("div");
+         headerChart.setAttribute("class", "bar-container");
+         
+         var presentationChart = document.createElement("div");
+         presentationChart.setAttribute("class", "bar presentation");
+         presentationChart.setAttribute("style", "height: 15%")// FIXME: time
+
+         var groupChart = document.createElement("div");
+         groupChart.setAttribute("class", "bar group");
+         groupChart.setAttribute("style", "height: 30%");
+
+         var discussionChart = document.createElement("div");
+         discussionChart.setAttribute("class", "bar discussion");
+         discussionChart.setAttribute("style", "height: 25%");
+
+         var breakChart = document.createElement("div");
+         breakChart.setAttribute("class", "bar break");
+         breakChart.setAttribute("style", "height: 30%");
+
+         headerChart.appendChild(presentationChart);
+         headerChart.appendChild(groupChart);
+         headerChart.appendChild(discussionChart);
+         headerChart.appendChild(breakChart);
+
+         dayHeader.appendChild(headerChart);
+
          dayContainer.appendChild(dayHeader);
 
          document.getElementById("days").appendChild(dayContainer);
@@ -141,11 +159,8 @@ var PlanningView = function (container, model) {
       for (var days = 0; day < model.days.length; days++) {
          console.log("For day " + days + " there are " +
                         model.days[days]._activities.length + " activities");
-
       }
    }
-
-
 
 	this.update = function(arg){
 		renderDays();

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Agenda Planner</title>
+		<link rel="stylesheet" type="text/css" href="css/real.css">
+		
+	</head>
+
+	
+	<body>
+  	<script src="http://yui.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
+	<header>
+		<span id="header-text">Agenda Planner</span>
+	</header>
+	
+	
+		<div id ="start-view">
+		<button id = "start-button" class = "button left">Start Planning Your Agenda</button>
+		
+		</div>
+
+
+		<div id ="planning-view">
+					
+            <!-- The activity parking lot -->	
+			<div id="activity-rect">
+			    <button id ="add-activity" class = "add-activity-button">Add Activity</button>
+                <div id="activity-table">
+                    <div id="activity-table-head">
+                        <div class="activity-table-head-left">Duration</div>
+                        <div class="activity-table-head-right">Agenda</div>
+                    </div>
+
+                    <ul id="activity-container" class ="connectedSortable"></ul>
+                </div>
+			</div>
+			
+			<div id="right">
+				<button id ="add-day" class = "button-add">Add Day</button>
+            </div>
+
+
+            <!-- The day agendas -->
+            <div id="days" class = "dayClass"></div>
+			 
+			 
+			<!-- Popup Starts Here -->
+			<div id="popupAddActivity">
+			
+            <!-- Add activity Form -->
+            <div id="form" name="form">
+               <h2>Add Activity</h2>
+               <hr>
+               <input id="name" name="name" placeholder="Name of activity" type="text">
+               <input id="length" min="1" name="length" placeholder="Length of activity" type="number">
+               <input id="description" name="description" placeholder="Description of activity" type="text">
+               <select id="type">
+                 <option value="0" selected>Presentation</option>
+                 <option value="1">Group Work</option>
+                 <option value="2">Discussion</option>
+                 <option value="3">Break</option>
+               </select>
+               <!-- Confirm and Exit buttons for add activity -->
+               <button id ="confirm-activity" class = "button-add">Confirm activity</button>
+               <button id ="exit-activity" class = "button-add">Exit</button>
+            </div>
+      
+			</div>
+			<!-- Popup Div Ends Here -->
+
+
+
+
+		<!--Sortable scriptz-->
+		<script src="js/jquery/jquery-1.11.3.js"></script>
+		<script src="js/jquery/jquery-sortable.js"></script>
+		<script src="js/jquery/jquery-ui.js"></script>
+		<script src="js/jquery/jquery-1.11.3.js"></script>
+		<script src="js/jquery/jquery-ui.js"></script>
+
+      <!-- Make popup draggable -->
+      <script>
+         $(function() {
+            $( "#popupAddActivity" ).draggable();
+         });
+      </script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/model.js"></script>
+	<script src="js/view/StartView.js"></script>
+	<script src="js/view/StartViewController.js"></script>
+	<script src="js/view/PlanningView.js"></script>
+	<script src="js/view/PlanningViewController.js"></script>
+
+</body>
+</html>

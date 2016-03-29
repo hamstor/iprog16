@@ -55,7 +55,7 @@ var PlanningViewController = function(view, model ) {
 				}
 				else {
 					//document.getElementById('form').submit();
-
+					
 					console.log(document.getElementById('length-pop').value  +" Length")
 					model.addActivity(new Activity(document.getElementById('name').value, parseInt(document.getElementById('length-pop').value), document.getElementById('type').value, document.getElementById('description').value));
 

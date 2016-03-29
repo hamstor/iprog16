@@ -248,6 +248,7 @@ header {
 }
 .activity-table-head-right {
     float: left;
+    width:50%;
 }
 
 .presentation{
@@ -332,7 +333,7 @@ div#popupAddDay{
 #form {
 	max-width:300px;
 	min-width:250px;
-	height: 500px;
+	height: 345px;
 	background: grey;
 	padding:10px 50px;
 	border:1px solid black;

@@ -64,7 +64,7 @@ var PlanningViewController = function(view, model ) {
 					console.log(model.parkedActivities[0].getTypeId());
 					console.log(model.parkedActivities[0].getDescription());
 					*/
-					$("#popupAddDay").hide();
+					$("#popupAddActivity").hide();
 					document.getElementById('name').value ="";
 					document.getElementById('length-pop').value="";
 					document.getElementById('type').value=""; 

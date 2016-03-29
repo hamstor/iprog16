@@ -205,7 +205,7 @@ header {
     padding: 5px;
     font-size: 1.2em;
 	box-shadow: 5px 5px 5px #888888;
-    width: 165px;
+    width: 186%;
   }
 .dayClass{
 
@@ -283,7 +283,7 @@ header {
 
 .day-div {
 	position: relative;
-	width: 225px;
+	width: 321px;
 	height: 487px;
 	display: inline;
 	background: grey;
@@ -299,9 +299,10 @@ header {
 	background: #c4c4c4;
    overflow: auto;
 	border: solid 1px;
-	height: 70px;
+	height: 150px;
 	font-style: bold;
 	font-size: 12;
+	overflow: visible;
 	padding: 10px 20px;
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }

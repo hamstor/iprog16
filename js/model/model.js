@@ -89,10 +89,13 @@ function Day(startH,startM) {
 	// returns the string representation Hours:Minutes of 
 	// the end time of the day
 	this.getEnd = function() {
+      console.log("totalLength", this.getTotalLength());
+
 		var end = this._start + this.getTotalLength();
 		var hour = Math.floor(end/60);
 		var minute = end % 60;
 		
+      console.log(hour + "hour");
 		console.log(minute + " minute");
 		if(hour < 10)
 			{
@@ -110,7 +113,6 @@ function Day(startH,startM) {
 	this.getStart = function() {
 		var hour = Math.floor(this._start/60);
 		var minute = this._start % 60;
-		console.log(minute);
 		if(hour < 10)
 			{	
 				hour = "0"+String(hour);	

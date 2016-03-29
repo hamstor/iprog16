@@ -55,15 +55,8 @@ var PlanningViewController = function(view, model ) {
 				}
 				else {
 					//document.getElementById('form').submit();
-					console.log(document.getElementById('length-pop').value  +" Length")
+					console.log(document.getElementById('length-pop').value  ," Length")
 					model.addActivity(new Activity(document.getElementById('name').value, document.getElementById('length-pop').value, document.getElementById('type').value, document.getElementById('description').value));
-					/*tezt
-
-					console.log(model.parkedActivities[0].getName());
-					console.log(model.parkedActivities[0].getLength());
-					console.log(model.parkedActivities[0].getTypeId());
-					console.log(model.parkedActivities[0].getDescription());
-					*/
 					$("#popupAddActivity").hide();
 					document.getElementById('name').value ="";
 					document.getElementById('length-pop').value="";

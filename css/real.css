@@ -198,6 +198,7 @@ header {
     padding: 0px 0 0 0;
     float: left;
     margin-right: 10px;
+    z-index: 1;
 }
 
 #activity-container li, #day-container li {
@@ -206,6 +207,7 @@ header {
     font-size: 1.2em;
 	box-shadow: 5px 5px 5px #888888;
     width: 263px;
+    z-index: 1000;
   }
 .dayClass{
 
@@ -296,12 +298,10 @@ header {
 }
 #day-table-head {
 	background: #c4c4c4;
-   overflow: auto;
 	border: solid 1px;
 	height: 150px;
 	font-style: bold;
 	font-size: 12;
-	overflow: visible;
 	padding: 10px 20px;
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
